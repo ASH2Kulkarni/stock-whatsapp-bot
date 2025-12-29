@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Real-Time Stock Dashboard</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-heading">📈 Real-Time Stock Dashboard</h1>
+
+    <div class="dashboard">
+      <!-- Controls -->
+      <div class="controls">
+        <h2>Select symbol</h2>
+        <select id="symbolDropdown">
+          <option value="FB">FB - Meta Platforms</option>
+          <option value="NVDA">NVDA - NVIDIA</option>
+          <option value="DIS">DIS - Disney</option>
+          <option value="BABA">BABA - Alibaba</option>
+          <option value="INTC">INTC - Intel</option>
+          <option value="PYPL">PYPL - PayPal</option>
+          <option value="ADBE">ADBE - Adobe</option>
+          <option value="CRM">CRM - Salesforce</option>
+          <option value="AAPL">AAPL - Apple</option>
+          <option value="GOOG">GOOG - Alphabet</option>
+          <option value="TSLA">TSLA - Tesla</option>
+          <option value="MSFT">MSFT - Microsoft</option>
+          <option value="AMZN">AMZN - Amazon</option>
+          <option value="NFLX">NFLX - Netflix</option>
+        </select>
+        <button id="addBtn">Add</button>
+      </div>
+
+      <!-- Chart + Export -->
+      <div class="chart-column">
+        <div id="plotlyChart" class="chart"></div>
+        <div class="export-container">
+          <button id="exportBtn">Export CSV</button>
+          <button id="sendWhatsAppBtn">Send to WhatsApp</button>
+        </div>
+      </div>
+
+      <!-- Watchlist -->
+      <div class="watchlist">
+        <h2>Watchlist</h2>
+        <ul id="watchlist"></ul>
+      </div>
+    </div>
+
+    <!-- Floating Chatbot -->
+<div id="chatbot" class="collapsed">
+    <div id="chatbot-header">💬 Stock Bot</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+        <input id="chatInput" type="text" placeholder="Ask price of any symbol..." />
+        <button onclick="sendChat()">Send</button>
+    </div>
+</div>
+
+
+    <!-- JS Libraries -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <script src="/static/js/new.js"></script>
+  </div>
+</body>
+</html>

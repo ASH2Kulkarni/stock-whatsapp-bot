@@ -1,0 +1,194 @@
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #121212;
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0;
+  }
+  .container { width: 95%; margin: auto; }
+  .main-heading { text-align: center; margin: 20px 0; font-size: 2em; color: #00bcd4; }
+  .dashboard { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+  .controls, .chart, .watchlist { background: #1e1e1e; border: 1px solid #00bcd4; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,188,212,0.3); }
+  .controls { width: 20%; padding: 15px; }
+  #symbolDropdown, #chatInput { width: 100%; padding: 10px; margin-bottom: 12px; border-radius: 6px; border: 1px solid #00bcd4; background: #121212; color: #e0e0e0; }
+  .controls button { width: 100%; padding: 10px; background: #ff4081; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+  .controls button:hover { background: #00bcd4; }
+  .chart { width: 100%; height: 100%; min-height: 520px; }
+  .chart-column { width: 55%; display: flex; flex-direction: column; }
+  .watchlist { width: 20%; padding: 15px; }
+  .watchlist h2 { color: #00bcd4; }
+  .watchlist li { padding: 6px 0; border-bottom: 1px solid #333; display: flex; align-items: center; }
+  .watchlist li span { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; }
+  .export-container { width: 100%; text-align: center; margin-top: 10px; }
+  #exportBtn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; background: #00bcd4; color: #121212; }
+  #sendWhatsAppBtn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; background: #4caf50; color: #fff; }
+  #exportBtn:hover { background: #ff4081; color: #fff; }
+  #sendWhatsAppBtn:hover { background: #388e3c; }
+  #chatbot { position: fixed; bottom: 20px; right: 20px; width: 280px; background: #1e1e1e; border: 1px solid #00bcd4; border-radius: 10px; display: flex; flex-direction: column; font-size: 14px; z-index: 999; }
+  #chatbot-header { padding: 10px; background: #00bcd4; color: #121212; font-weight: bold; text-align: center; border-radius: 10px 10px 0 0; cursor: pointer; user-select: none; }
+  #chatbot-messages { padding: 10px; height: 160px; overflow-y: auto; color: #e0e0e0; }
+  .chat-user { color: #ff4081; margin-bottom: 6px; }
+  .chat-bot { color: #00e676; margin-bottom: 8px; }
+  #chatbot.collapsed #chatbot-messages { display: none !important; }
+  /* Chatbot container */
+#chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 280px;
+    background: #1e1e1e;
+    border: 1px solid #00bcd4;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    z-index: 999;
+    transition: height 0.3s ease;
+}
+
+/* Header */
+#chatbot-header {
+    padding: 10px;
+    background: #00bcd4;
+    color: #121212;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Messages area */
+#chatbot-messages {
+    padding: 10px;
+    height: 160px;
+    overflow-y: auto;
+    color: #e0e0e0;
+}
+
+/* Input area inside chatbot */
+#chatbot-input {
+    display: flex;
+    padding: 10px;
+    gap: 5px;
+}
+
+#chatbot-input input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #00bcd4;
+    background: #121212;
+    color: #e0e0e0;
+}
+
+#chatbot-input button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #00bcd4;
+    color: #121212;
+    cursor: pointer;
+}
+
+/* Collapsed state: hide messages and input */
+#chatbot.collapsed #chatbot-messages,
+#chatbot.collapsed #chatbot-input {
+    display: none !important;
+}
+/* Chart fills its container */
+.chart-column {
+  flex: 2 1 500px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+#plotlyChart {
+  flex: 1;           /* Take all available vertical space */
+  width: 100%;       /* Full width */
+  min-height: 500px; /* Minimum height */
+}
+
+/* Dashboard flex layout */
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Controls and watchlist scroll if needed */
+.controls, .watchlist {
+  flex: 1 1 200px;
+  min-width: 200px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Chatbot container */
+#chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 280px;
+    background: #1e1e1e;
+    border: 1px solid #00bcd4;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    z-index: 999;
+    transition: height 0.3s ease;
+}
+
+/* Header */
+#chatbot-header {
+    padding: 10px;
+    background: #00bcd4;
+    color: #121212;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Messages area */
+#chatbot-messages {
+    padding: 10px;
+    height: 160px;
+    overflow-y: auto;
+    color: #e0e0e0;
+}
+
+/* Input area inside chatbot */
+#chatbot-input {
+    display: flex;
+    padding: 10px;
+    gap: 5px;
+}
+
+#chatbot-input input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #00bcd4;
+    background: #121212;
+    color: #e0e0e0;
+}
+
+#chatbot-input button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #00bcd4;
+    color: #121212;
+    cursor: pointer;
+}
+
+/* Collapsed state: hide messages and input */
+#chatbot.collapsed #chatbot-messages,
+#chatbot.collapsed #chatbot-input {
+    display: none !important;
+}
