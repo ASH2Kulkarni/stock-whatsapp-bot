@@ -6,21 +6,22 @@ A **real-time stock price monitoring and alert bot** that fetches live stock dat
 
 ## Features
 
-- Fetch **real-time stock prices** from vantage API.  
+- Fetch **real-time stock prices** from vantage API.
+- **Smart chat-bot** replying exact prices handling even misspellings.
 - **Interactive charts** with dynamic stock selection.  
-- **WhatsApp notifications** for selected stocks.  
-- Avoids duplicates in notifications or CSV exports.  
+- **Send Realtime stock price on one whatsapp number** for selected stocks.  
+- Avoids duplicates in whatsap text, chatbot and CSV exports.  
 - Dark-themed, responsive front-end interface.  
 - `.env` support for storing sensitive API keys securely.  
 
 ---
 
-## Live WhatsApp Notifications
+## Live WhatsApp messaging
 
 The bot automatically sends WhatsApp messages with:
 
 - Stock price updates in real-time.  
-- Alerts for selected stocks only once (no duplicates).  
+- Sends selected stocks only once (no duplicates).  
 - CSV export of currently displayed stock data.  
 
 > WhatsApp messages are sent using **Twilio API** or any configured WhatsApp service.  
